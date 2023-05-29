@@ -1,4 +1,6 @@
-# Proiect PA - Crazy House Chess Engine
+# PA Project - Crazy House Chess Engine
+
+# 1st Stage
 
 ## Compile Instructions
 
@@ -146,4 +148,24 @@ Maria Sfîrăială, _the git girl that took a vacation_
    
    &rarr; place Crazy House pieces
    
-   &rarr; generate next move (integrate Cati, Delia, Maria work)   
+   &rarr; generate next move (integrate Cati, Delia, Maria work)
+
+# 2nd Stage
+
+## Compile Instructions
+
+## Structure
+
+## Algorithmic Approach
+
+## Bibliography
+
+## Members and Their Work
+
+Alexandru Mihai, _the "let Ofast do its magic" believer_
+
+Delia Constantinescu, _the "but depth=5 doesn't get blocked for me" person_
+
+Ecaterina Mincă, _the competition spy_
+
+Maria Sfîrăială _"let our bot be named Bot-ez" author_
