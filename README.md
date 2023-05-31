@@ -163,19 +163,19 @@ maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git$ cd src/
 #### `syockfish` - easy
 
 ```console
-xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-20,Slow Mover=10,Use NNUE=false" -fn "Stockfish Easy" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
+maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git$ xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-20,Slow Mover=10,Use NNUE=false" -fn "Stockfish Easy" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
 ```
 
 #### `syockfish` - medium
 
 ```console
-xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-10,Slow Mover=10,Use NNUE=false" -fn "Stockfish Easy" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
+maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git$ xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-10,Slow Mover=10,Use NNUE=false" -fn "Stockfish Medium" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
 ```
 
 #### `syockfish` - hard
 
 ```console
-xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-5,Slow Mover=10,Use NNUE=false" -fn "Stockfish Easy" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
+maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git$ xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-5,Slow Mover=10,Use NNUE=false" -fn "Stockfish Hard" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
 ```
 
 ### Build
@@ -228,13 +228,31 @@ maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git/src$ make clean
 * `Bot.cpp`, `Bot.h`:
 
    &rarr; Alpha-beta pruning algorithms: one for early game, `alphaBetaEarly()` and one for late game, `alphaBetaLate()`.
-   Based on which situation we find our bot to be in, we call the `evaluate_early()` or `evaluate_late()` methods, to get the best results.
+   Based on which situation we find our bot to be in, we call the `evaluateEarly()` or `evaluateLate()` methods, to get the best results.
 
 *  `Evaluate.cpp`, `Evaluate.h`:
 
    &rarr; The meat of the project: the 2 evaluate methods, plus some important helpers for them, such as `pawnControl()`, `bishopControl()` and `rookControl()`, used for scanarios such as controling the center of the table, for the pawns, or optimal positions for the other pieces.
 
 ## Algorithmic Approach
+
+The main algorithms used for this stage are placed in the `Evaluate.cpp` source and they are the most important aspect when thinking of an efficient Chess player:
+
+1. `checkFileIsolated()`:
+
+1. `evaluateBasic()`, `evaluateEarly()`, `evaluateLate()`:
+
+1. `pawnControl()`:
+
+1. `bishopControl()`:
+
+1. `rookControl()`:
+
+1. `knightsEarly()`:
+
+1. `checkKingAttacked()`:
+
+1. `checkPawnShield()`:
 
 ## Bibliography
 
