@@ -50,7 +50,7 @@ maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git/src$ make clean
     ├── MoveNode.cpp
     ├── MoveNode.h
     ├── Piece.h
-    ├── PlaySide.h
+    └── PlaySide.h
 ```
 
 * `Bot.cpp`, `Bot.h`:
@@ -154,18 +154,118 @@ Maria Sfîrăială, _the git girl that took a vacation_
 
 ## Compile Instructions
 
+```console
+maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git$ cd src/
+```
+
+### `xboard` Integration
+
+#### `syockfish` - easy
+
+```console
+xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-20,Slow Mover=10,Use NNUE=false" -fn "Stockfish Easy" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
+```
+
+#### `syockfish` - medium
+
+```console
+xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-10,Slow Mover=10,Use NNUE=false" -fn "Stockfish Easy" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
+```
+
+#### `syockfish` - hard
+
+```console
+xboard -variant crazyhouse -fcp "./stockfish" -firstOptions "Skill Level=-5,Slow Mover=10,Use NNUE=false" -fn "Stockfish Easy" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseSecond false 
+```
+
+### Build
+
+```console
+maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git/src$ make build
+```
+
+### Run
+
+```console
+maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git/src$ make run
+```
+
+### Clean
+
+```console
+maria@spectrum:~/proiect-pa-2023-exploding-pengwins.git/src$ make clean
+```
+
 ## Structure
+
+```console
+.
+├── CONTRIBUTING.md
+├── cs
+│   └── check_cpp.py
+├── README.md
+└── src
+    ├── BoardHelpers.cpp
+    ├── BoardHelpers.h
+    ├── Bot.cpp
+    ├── Bot.h
+    ├── Evaluate.cpp
+    ├── Evaluate.h
+    ├── Main.cpp
+    ├── Makefile
+    ├── Move.cpp
+    ├── Move.h
+    ├── MoveNode.cpp
+    ├── MoveNode.h
+    ├── Piece.h
+    └── PlaySide.h
+```
+
+* `BoardHelpers.cpp`, `BoardHelpers.h`:
+
+   &rarr; Moved the `BoardConfig()` class and the `PlaySidePiece()` enum from the previous stage here, for better control.
+
+* `Bot.cpp`, `Bot.h`:
+
+   &rarr; Alpha-beta pruning algorithms: one for early game, `alphaBetaEarly()` and one for late game, `alphaBetaLate()`.
+   Based on which situation we find our bot to be in, we call the `evaluate_early()` or `evaluate_late()` methods, to get the best results.
+
+*  `Evaluate.cpp`, `Evaluate.h`:
+
+   &rarr; The meat of the project: the 2 evaluate methods, plus some important helpers for them, such as `pawnControl()`, `bishopControl()` and `rookControl()`, used for scanarios such as controling the center of the table, for the pawns, or optimal positions for the other pieces.
 
 ## Algorithmic Approach
 
 ## Bibliography
 
+[MiniMax Lab](https://ocw.cs.pub.ro/courses/pa/laboratoare/laborator-05)
+
 ## Members and Their Work
 
 Alexandru Mihai, _the "let Ofast do its magic" believer_
 
+&rarr; evaluate functions (early and late game)
+
+&rarr; Alpha-beta pruning algorithm
+
+&rarr; euristics
+
 Delia Constantinescu, _the "but depth=5 doesn't get blocked for me" person_
+
+&rarr; evaluate functions (early and late game)
+
+&rarr; Alpha-beta pruning algorithm
+
+&rarr; euristics
 
 Ecaterina Mincă, _the competition spy_
 
-Maria Sfîrăială _"let our bot be named Bot-ez" author_
+&rarr; Alpha-beta pruning algorithm
+
+Maria Sfîrăială _the "let our bot be named Bot-ez" author_
+
+&rarr; Alpha-beta pruning algorithm
+
+&rarr; README
+
+&rarr; testing with `stockfish` (levels -20 - 0)
